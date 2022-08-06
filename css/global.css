@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Overpass:wght@100;400&display=swap');
+
+:root {
+	--primary-color: #25181a;
+}
+
+body {
+	font-family: "Poppins", sans-serif;
+}

@@ -1,0 +1,237 @@
+@import url('/css/reset.css');
+@import url('/css/global.css');
+
+body {
+	background-color: var(--primary-color);
+}
+
+body::before {
+	content: "";
+	background-image: url(/assets/background-cards/hp1.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	opacity: 0.2;
+	transition: background-image 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+/*CABEÇALHO MENU*/
+
+.h-menu {
+	padding: 1rem 0;
+	width: 100%; /*o navbar ocupa a tela inteira*/
+	text-align: center;
+	position: relative; /*torna o menu clicável novamente, já que o position absolute em ::before fica em sobreposição ao menu*/
+}
+
+.h-menu__item {
+	display: inline-block; /*todos os itens ficam alinhados numa única linha*/
+	text-transform: uppercase;
+	margin: 0 1.25rem;
+}
+
+.h-menu__icon img {
+/*tamanho do ícone*/
+	width: 10rem;
+	margin: 0 0.25rem;
+	vertical-align: middle; /*posição do ícone*/
+}
+
+.h-menu-meio__icon img {
+	/*tamanho do ícone*/
+		width: 10rem;
+		align-items: center;
+		margin: 0 57.25rem;
+		padding-bottom: 55px;
+		opacity: 0.95;
+	}
+/*---------------CARDS TOP------------------------*/
+
+.h-container .h-main-content__top {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	padding-bottom: 55px;
+	padding-top: 15px;
+}
+
+.h-main-content__top .h-card {
+	border: 0.5rem solid white;
+	width: calc(100%/4 - 6%); /*o espaço total da tela será dividido entre os três cards, e o 8% é o espaçamento entre esses cards*/
+	height: 70vh; /*viewport é a área que está disponível pro usuário ver o site, V de viewport e H de height (altura), se fosse vw seria W de width (largura)*/
+	position: relative;
+	transition: filter 0.5s ease-in-out;
+}
+
+.h-main-content__top .h-card__background {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+	opacity: 1;
+	transition: 1s ease-in-out;
+}
+
+.h-main-content__top .h-card__image {
+	width: 100%;
+	height: 100%;
+	object-fit: contain; /*para a imagem se encaixar dentro do container*/
+	position: relative;
+	transition: 1s ease-in-out;
+}
+
+.h-main-content__top .h-card__title {
+	font-size: 2rem;
+	text-transform: uppercase;
+	text-align: center;
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	transition: bottom 1s ease-in-out;
+}
+
+/*-------------CARD BOTTOM---------------------*/
+
+.h-container-2 .h-main-content__bottom {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	padding-bottom: 20px;
+}
+
+.h-main-content__bottom .h-card {
+	border: 0.5rem solid white;
+	width: calc(100%/4 - 6%); /*o espaço total da tela será dividido entre os três cards, e o 8% é o espaçamento entre esses cards*/
+	height: 70vh; /*viewport é a área que está disponível pro usuário ver o site, V de viewport e H de height (altura), se fosse vw seria W de width (largura)*/
+	position: relative;
+	transition: filter 0.5s ease-in-out;
+}
+
+.h-main-content__bottom .h-card__background {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+	opacity: 1;
+	transition: 1s ease-in-out;
+}
+
+.h-main-content__bottom .h-card__image {
+	width: 100%;
+	height: 100%;
+	object-fit: contain; /*para a imagem se encaixar dentro do container*/
+	position: relative;
+	transition: 1s ease-in-out;
+}
+
+.h-main-content__bottom .h-card__title {
+	font-size: 2rem;
+	text-transform: uppercase;
+	text-align: center;
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	transition: bottom 1s ease-in-out;
+}
+
+/*BOTÕES*/
+
+.h-controller {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.h-controller__button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.9rem; /*o width e o height na mesma proporção irá se tornar um quadrado*/
+	height: 2.9rem;
+	border: 2px solid white;
+	border-radius: 50%; /*irá fazer um círculo perfeito*/
+	background-color: var(--primary-color);
+	font-size: 1rem;
+	font-weight: bold; /*nregrito*/
+	text-align: center;
+	cursor: pointer; /*aparece a mãozinha, mostrando que o botão é aplicável*/
+	z-index: 1; /*a linha depois do button não cubrirá o círculo, o botão sempre ficará na frente*/
+	transition: transform 0.3s ease-in-out; /*EASE-IN-OUT: a transição será lenta no começo e no final, e quando estiver no meio ficará com o padrão normal programado no hover*/
+	margin: 29px;
+}
+
+.h-controller__line {
+	background-color: white;
+	width: 95%;
+	height: 2px;
+	position: absolute; /*fará com que as bolinhas fique acima da linha*/
+}
+
+.h-controller__button:hover { /*HOVER: quando o usuário passar o mouse em cima do elemento button, uma ação irá acontecer*/
+	transform: scale(1.15); /*a escala será de 10%. o 1 é o tamanho natural, o 1.1 é o acrescimo de 10%*/
+}
+
+/*HOVER ANIMATION*/
+
+.h-card--hovered .h-card__background {
+	cursor: pointer;
+	opacity: 0;
+}
+
+.h-card--hovered .h-card__image{
+	transform: scale(1.20);
+	filter: drop-shadow(30px 10px 4px rgba(0, 0, 0, .5)); /*é uma sombra projetada da imagem dentro de cada card*/
+}
+
+body#harry-potter-1-hovered::before { /*irá adicionar a imagem escolhida ao background width 100%*/
+	background-image: url('/assets/backgrounds hp/pedra-filosofal-02.jpg');
+}
+
+body#harry-potter-2-hovered::before {
+	background-image: url('/assets/backgrounds hp/camera-secreta.jpg');
+}
+
+body#harry-potter-3-hovered::before {
+	background-image: url('/assets/backgrounds hp/prisioneiro-de-askaban.jpg');
+}
+
+body#harry-potter-4-hovered::before {
+	background-image: url('/assets/backgrounds hp/calice-de-fogo-2.jpg');
+}
+
+body#harry-potter-5-hovered::before {
+	background-image: url('/assets/backgrounds hp/ordem-da-fenix.jpg');
+}
+
+body#harry-potter-6-hovered::before {
+	background-image: url('/assets/backgrounds hp/enigma-do-principe.jpg');
+}
+
+body#harry-potter-7-hovered::before {
+	background-image: url('/assets/backgrounds hp/reliquias-da-morte-1.jpg');
+}
+
+body#harry-potter-8-hovered::before {
+	background-image: url('/assets/backgrounds hp/reliquias-da-morte-2.jpg');
+}
+
+body[id^="harry-potter-"]::before { /*o colchete pega um atributo do body em específico | ^= indica onde irá começar a mudança, qual elemento irá sofrer a alteração*/
+	opacity: 1;
+}
+
+body[id^="harry-potter-"] .h-card:not(.h-card--hovered){ /*vai pegar o card que não estiver sendo selecionado pelo hovered e irá aplicar o filtro gray*/
+	filter: grayscale(100%);
+}
+
+/*.s-card--hovered .s-card__title { /*quando o card estiver com o hovered, o nome do title irá ocupar a metade do card, por cima da imagem */
+/*	bottom: 50%;
+}
+*/
