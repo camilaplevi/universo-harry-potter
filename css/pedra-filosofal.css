@@ -1,39 +1,135 @@
 @import url('/css/global.css');
 @import url('/css/reset.css');
+@import url('/css/pills.css');
 
-body {
-	background-color: var(--primary-color);
-}
 
-body::before {
+.h-wrapper {
 	content: "";
-	background-image: url(/assets/background-cards/hp1.jpg);
+	display: flex;
+	height: 100vh; /*pegará toda parte visível da tela, no caso se a tela diminuir, não irá criar barra de rolagem*/
+	flex-flow: row nowrap;
+	background-image: url(/assets/background-cards/hp1-3.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	width: 100%;
+}
+
+.h-left-column {
+	width: 100px;
 	height: 100%;
-	position: fixed;
-	opacity: 0.2;
-	transition: background-image 1s ease-in-out, opacity 1s ease-in-out;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: flex; /*vai fazer com que o backgroun não se misture com a coluna esquerda, mantendo o padrão dos botões laterais*/
+	left: 0;
+	top: 0;
+	padding-right: 50px;
+	z-index: 0;
 }
 
-.h-menu {
-	padding: 1rem 0;
-	width: 100%; /*o navbar ocupa a tela inteira*/
-	text-align: center;
-	position: relative; /*torna o menu clicável novamente, já que o position absolute em ::before fica em sobreposição ao menu*/
+.h-wrapper .h-main-content {
+	height: 100%;
+	width: 100%;
+	padding-left: 30px;
 }
 
-.h-menu__item {
-	display: inline-block; /*todos os itens ficam alinhados numa única linha*/
-	text-transform: uppercase;
-	margin: 0 1.25rem;
+
+.h-wrapper .h-main-content__top {
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
 }
 
-.h-menu__icon img {
-/*tamanho do ícone*/
-	width: 10rem;
-	margin: 0 0.25rem;
-	vertical-align: middle; /*posição do ícone*/
+.h-wrapper .h-main-content__bottom {
+	height: 20vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 }
+
+/*---------------------------------*/
+
+.h-navigation {
+	height: 80vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	position: relative;
+	padding-left: 60px;
+}
+
+.h-navigation ul li {
+	margin: 20px 0; /*o 60px irá definir margem pra cima e pra baixo, e o 0, pra esquerda e direita, se colocar só um irá pegar esse valor para todos os lados*/
+}
+
+.h-navigation ul li:first-child { /*irá aplicar margem 0 no primeiro link*/
+	margin-top: 0;
+}
+
+.h-navigation ul li:last-child {
+	margin-bottom: 0;
+}
+
+.h-navigation ul li a {
+	color: rgb(255, 255, 255);
+	border: solid 4px rgb(148, 12, 12);
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	background-color: rgb(181, 65, 65);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.h-navigation::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	width: 2px;
+	height: 100%;
+	background-color: rgb(148, 12, 12);
+	z-index: 0;
+}
+
+.h-navigation .h-navigation__icon {
+	position: absolute;
+	top: -70px;
+}
+
+.h-navigation ul li a:hover,
+.h-navigation ul li a.active {
+	color: var(--primary-color);
+	background-color: white;
+}
+
+.h-navigation ul li a:hover {
+	transform: scale(1.20); /*transição do botão*/
+}
+
+.h-wrapper .h-main-content__top .h-logo img{
+	margin-top: 20px;
+	margin-left: 0;
+	margin-bottom: 30px;
+	width: 300px;
+}
+
+/* .h-wrapper .h-main-content__top .h-description { */
+	/*background da div pills*/
+
+	/* background-color: rgba(0, 0, 0, .7); */
+	/*RGBA = red, green, blue e alpha, que é a transparência da cor. nesse caso há 70% de transparência*/
+
+	/* max-width: 50%;
+	padding: 20px;
+	border-radius: 10px;
+} */
+
+/* .h-wrapper .h-main-content__top .h-description .h-description__text {
+	color: white;
+	line-height: 170%; /*distância entre uma linha em outra*/
+	/* padding-top: 15px;
+}  */

@@ -1,0 +1,17 @@
+.pills ul {
+	display: flex;
+	flex-direction: row; /*o row colocorá os componentes um do lado do outro*/
+}
+
+.pills ul li {
+	background-color: var(--primary-color);
+	color: white;
+	padding: 5px 15px; /*composição do botão, o primeiro valor é altura, o segundo largura - espaçamento entre as bordas*/
+	margin: 0 10px; /*espaçamento entre os textos*/
+	border-radius: 20px;
+	text-transform: uppercase;
+}
+
+.pills ul li:first-child {
+	margin-left: 0;
+}
