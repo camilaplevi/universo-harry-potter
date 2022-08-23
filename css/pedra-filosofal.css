@@ -114,19 +114,19 @@
 	margin-top: 20px;
 	margin-left: 0;
 	margin-bottom: 30px;
-	width: 300px;
+	width: 299px;
 }
 
-/* .h-wrapper .h-main-content__top .h-description { */
+.h-wrapper .h-main-content__top .h-description { */
 	/*background da div pills*/
 
-	/* background-color: rgba(0, 0, 0, .7); */
+	background-color: rgba(0, 0, 0, .7);
 	/*RGBA = red, green, blue e alpha, que é a transparência da cor. nesse caso há 70% de transparência*/
 
-	/* max-width: 50%;
+	max-width: 50%;
 	padding: 20px;
 	border-radius: 10px;
-} */
+}
 
 /* .h-wrapper .h-main-content__top .h-description .h-description__text {
 	color: white;
